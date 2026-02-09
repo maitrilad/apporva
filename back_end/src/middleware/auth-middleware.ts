@@ -7,6 +7,7 @@ const roleLevel: Record<Role, number> = {
   manager: 1,
   admin: 2,
 };
+import { request } from "node:http";
 
 /**
  * Auth middleware with optional role requirement.
@@ -45,4 +46,4 @@ export function authMiddleware(role?: Role) {
       return res.status(401).json({ message: "Unauthorized" });
     }
   };
-}
+};
