@@ -23,6 +23,7 @@ export function generateToken(payload: { id: number, role: Role }): string {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export function verifyToken(token: string): { id: number; role: Role } {
   try {
     const decoded = jwt.verify(token, env.JWT_SECRET) as {
@@ -33,6 +34,12 @@ export function verifyToken(token: string): { user_id: string; role: Role } {
     const decoded = jwt.verify(token, env.JWT_SECRET) as {
       user_id: string;
 >>>>>>> 7c1e84b (Resolved the error and formated the file)
+=======
+export function verifyToken(token: string): { id: string; role: Role } {
+  try {
+    const decoded = jwt.verify(token, env.JWT_SECRET) as {
+      id: string;
+>>>>>>> 421096c (Refactor JWT verification to use 'id' instead of 'user_id' in auth middleware and utils)
       role: Role;
     };
 
