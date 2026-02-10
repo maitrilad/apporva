@@ -21,6 +21,7 @@
         "express": "^5.2.1",
         "jsonwebtoken": "^9.0.3",
         "postgres": "^3.4.8",
+        "pg": "^8.18.0",
         "zod": "^4.3.6"
     },
     "devDependencies": {
@@ -28,7 +29,6 @@
         "@types/cookie-parser": "^1.4.10",
         "postgres": "^3.4.8",
         "zod": "^4.3.6",
-        "@types/bcrypt": "^6.0.0",
         "@types/cors": "^2.8.19",
         "@types/express": "^5.0.6",
         "@types/jsonwebtoken": "^9.0.10",
