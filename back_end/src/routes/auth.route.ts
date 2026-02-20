@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { z } from "zod";
 import { signupService, signinService } from "../services/authService";
-import { env } from "src/config/env";
+import { env } from "../config/env";
 
 const router = Router();
 
@@ -9,7 +9,6 @@ const signupSchema = z.object({
   fullName: z.string().min(1),
   email: z.email().endsWith("@projectapprova.com"),
   password: z.string().min(8),
-  role: z.enum(["employee", "manager", "admin"]),
 });
 
 router.post("/signup", async (req, res) => {

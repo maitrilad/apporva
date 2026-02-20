@@ -28,4 +28,28 @@ export async function signupService(input: SignupInput): Promise<void> {
     password: hashedPassword,
     role: "employee",
   });
-}
+};
+
+export async function signinService(
+  email: string,
+  password: string
+): Promise<{ token: string }> {
+  const user = await findUserByEmail(email);
+
+  if (!user) {
+    throw new Error("Invalid credentials");
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    throw new Error("Invalid credentials");
+  }
+
+  const token = generateToken({
+    id: user.id,
+    role: user.role as Role,
+  });
+
+  return { token };
+};
